@@ -160,9 +160,9 @@ public class ImporterUtil {
    * @return The {@link Key} of the entity
    */
   Key addTopic(String topicName, String description) {
-//    Key key = datastore.allocateId(keyFactory.newKey());
-    Key key = datastore.allocateId(keyFactory.newKey(topicName));
+    Key key = datastore.allocateId(keyFactory.newKey());
     Entity topic = Entity.newBuilder(key)
+        .set("topic", topicName)
         .set("description", description)
         .set("created", Timestamp.now())
         .build();
